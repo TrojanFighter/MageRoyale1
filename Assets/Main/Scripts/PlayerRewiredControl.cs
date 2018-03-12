@@ -7,7 +7,7 @@ namespace MageRoyale
     [RequireComponent(typeof(CharacterController))]
     public class PlayerRewiredControl : MonoBehaviour
     {
-        public int playerId = 1; // The Rewired player id of this character
+        public int playerId = 0; // The Rewired player id of this character
 
         //public float moveSpeed = 3.0f;
         //public float bulletSpeed = 15.0f;
