@@ -1,0 +1,38 @@
+Version 2.1
+
+-New 3D models
+-Performance improvements
+-Change in classes
+-New camera modes and new configuration settings.
+
+
+
+
+
+Version 2.2
+
+-Now you can select whether you want to rotate the camera all the time or if you want to rotate it only when you click any specific key.
+
+
+
+
+
+Version 2.3
+
+-It is now possible to decide whether the cameras will bypass the colliders or detect them through Raycast.
+-Now you can adjust the maximum and minimum angles for the 'orbital' and 'orbitalThatsFollows' camera.
+
+
+
+
+
+Version 2.4
+
+-Now it is possible to zoom in the cameras 'FirstPerson' and 'ETS_Style Camera'
+
+
+
+
+
+
+
