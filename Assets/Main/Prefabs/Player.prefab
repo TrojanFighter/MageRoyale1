@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4068833339519992}
   - component: {fileID: 33708412597796974}
   - component: {fileID: 23023330688047620}
-  m_Layer: 14
+  m_Layer: 8
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36,7 +36,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4660699273798962}
-  m_Layer: 14
+  m_Layer: 8
   m_Name: WeaponTip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -51,13 +51,13 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4971866229589886}
-  - component: {fileID: 143543129591239884}
-  - component: {fileID: 114005145041891650}
-  - component: {fileID: 114878701910588068}
-  - component: {fileID: 114945358303938492}
   - component: {fileID: 114155836358009890}
   - component: {fileID: 136321962759838084}
-  m_Layer: 14
+  - component: {fileID: 114838683132845990}
+  - component: {fileID: 114850473797423314}
+  - component: {fileID: 114586644244713802}
+  - component: {fileID: 143225426194842182}
+  m_Layer: 8
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -74,7 +74,7 @@ GameObject:
   - component: {fileID: 4508416539126446}
   - component: {fileID: 33976627699589908}
   - component: {fileID: 23790766543039268}
-  m_Layer: 14
+  m_Layer: 8
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -128,7 +128,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1524531193529830}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -43.6, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4508416539126446}
@@ -218,18 +218,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1792190538338464}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &114005145041891650
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1524531193529830}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1f5040f4d22548648ed3625055f61ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Ease: 1
 --- !u!114 &114155836358009890
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -242,7 +230,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health: 100
---- !u!114 &114878701910588068
+--- !u!114 &114586644244713802
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -250,12 +238,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 1524531193529830}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4ec74b66098a4f9eb5b9370cb16ebf6, type: 3}
+  m_Script: {fileID: 11500000, guid: 7ef18277dec5b1e4197ee7451450cec3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RunSpeed: 12
-  Acceleration: 30
---- !u!114 &114945358303938492
+  playerId: 0
+  _functionAllowed: 1
+  rewiredSons: []
+  ExplosionForce: 400
+  ExplosionRadius: 2
+  FireRate: 0.1
+  FireShakeForce: 0.8
+  FireShakeDuration: 0.02
+--- !u!114 &114838683132845990
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -263,9 +257,32 @@ MonoBehaviour:
   m_GameObject: {fileID: 1524531193529830}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8b08415e633a4d27a4a801090003559, type: 3}
+  m_Script: {fileID: 11500000, guid: 44542f0f9fd1ce74082d6b980574e9c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerId: 0
+  _functionAllowed: 1
+  rewiredSons:
+  - {fileID: 114850473797423314}
+  - {fileID: 114586644244713802}
+  bturnwithMouse: 1
+  _TurnRateEase: 0.15
+  RunSpeed: 10
+  Acceleration: 20
+--- !u!114 &114850473797423314
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1524531193529830}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea1f9d9404738c449bbf64405daec5ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerId: 1
+  _functionAllowed: 1
+  rewiredSons: []
   BulletPool: {fileID: 0}
   WeaponTip: {fileID: 4660699273798962}
   FireRate: 0.1
@@ -277,14 +294,14 @@ CapsuleCollider:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1524531193529830}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_Material: {fileID: 13400000, guid: 2ba9a509e5df66d4eaba0efbe9f808d5, type: 2}
+  m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
---- !u!143 &143543129591239884
+--- !u!143 &143225426194842182
 CharacterController:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -297,7 +314,7 @@ CharacterController:
   m_Height: 2
   m_Radius: 0.5
   m_SlopeLimit: 45
-  m_StepOffset: 0.3
+  m_StepOffset: 0.001
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 1, z: 0}
