@@ -201,6 +201,11 @@
     <Compile Include="Assets\Imported\Rewired\Internal\Scripts\InputManager.cs" />
     <Compile Include="Assets\Imported\Rewired\Internal\Scripts\Misc\ExternalTools.cs" />
     <Compile Include="Assets\Imported\Rewired\Internal\Scripts\Platforms\Ouya\OuyaInputSource.cs" />
+    <Compile Include="Assets\Main\Scripts\ElementalBall\BallDetectionRange.cs" />
+    <Compile Include="Assets\Main\Scripts\ElementalBall\BallMovement.cs" />
+    <Compile Include="Assets\Main\Scripts\ElementalBall\ElementalBall.cs" />
+    <Compile Include="Assets\Main\Scripts\Entity\EntityBase.cs" />
+    <Compile Include="Assets\Main\Scripts\Entity\PlayerEntity.cs" />
     <Compile Include="Assets\Main\Scripts\RewiredControlled\PlayerRewiredBump.cs" />
     <Compile Include="Assets\Main\Scripts\RewiredControlled\PlayerRewiredControl.cs" />
     <Compile Include="Assets\Main\Scripts\RewiredControlled\PlayerRewiredFire.cs" />
