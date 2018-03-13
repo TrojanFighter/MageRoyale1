@@ -204,6 +204,7 @@
     <Compile Include="Assets\Main\Scripts\ElementalBall\BallDetectionRange.cs" />
     <Compile Include="Assets\Main\Scripts\ElementalBall\BallMovement.cs" />
     <Compile Include="Assets\Main\Scripts\ElementalBall\ElementalBall.cs" />
+    <Compile Include="Assets\Main\Scripts\Entity\BallEntity.cs" />
     <Compile Include="Assets\Main\Scripts\Entity\EntityBase.cs" />
     <Compile Include="Assets\Main\Scripts\Entity\PlayerEntity.cs" />
     <Compile Include="Assets\Main\Scripts\RewiredControlled\PlayerRewiredBump.cs" />

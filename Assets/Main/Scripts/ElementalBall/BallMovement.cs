@@ -12,6 +12,7 @@ namespace MageRoyale.ElementalBall
 		public float TurnForce = 10;
 		public float ForwardForce = 100;
 
+		public Vector3 currentForceDirection;
 		// Private vars
 		float lastToTurn = 0;
 

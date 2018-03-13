@@ -5,10 +5,10 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 460574}
-  - 114: {fileID: 11468768}
+  - component: {fileID: 460574}
+  - component: {fileID: 11468768}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Untagged
@@ -21,11 +21,11 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 469876}
-  - 33: {fileID: 3334760}
-  - 23: {fileID: 2325860}
+  - component: {fileID: 469876}
+  - component: {fileID: 3334760}
+  - component: {fileID: 2325860}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Untagged
@@ -40,24 +40,26 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 111778}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.56999993, y: .953999996, z: 0}
+  m_LocalPosition: {x: -3.57, y: 0.954, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 469876}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &469876
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 154174}
-  m_LocalRotation: {x: .707106829, y: .707106709, z: -1.15202326e-07, w: -1.15202312e-07}
+  m_LocalRotation: {x: 0.7071068, y: 0.7071067, z: -0.000000115202326, w: -0.00000011520231}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: .239754513, y: .278036505, z: .283927709}
+  m_LocalScale: {x: 0.23975451, y: 0.2780365, z: 0.2839277}
   m_Children: []
   m_Father: {fileID: 460574}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &2325860
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -67,20 +69,30 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 0
+  m_ReflectionProbeUsage: 0
   m_Materials:
   - {fileID: 2100000, guid: 42e6351e436b04fff8bb96307cb28bbf, type: 2}
-  m_SubsetIndices: 
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
   m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_ReflectionProbeUsage: 0
   m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!33 &3334760
 MeshFilter:
@@ -102,10 +114,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BulletDuration: 3
   BulletSpeed: 40
-  SkinWidth: .100000001
+  SkinWidth: 0.1
   CollisionMask:
     serializedVersion: 2
-    m_Bits: 32769
+    m_Bits: 33025
   BulletDamage: 10
 --- !u!1001 &100100000
 Prefab:

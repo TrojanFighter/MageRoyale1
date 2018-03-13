@@ -17,7 +17,7 @@ TagManager:
   - PlayerCollider
   - ElementalBall
   - BallDetectionRange
-  - 
+  - WallCollider
   - 
   - 
   - 

@@ -6,6 +6,7 @@ namespace MageRoyale.Entity
 {
 	public class EntityBase : MonoBehaviour
 	{
+		public int entityId = 0;
 
 	}
 }

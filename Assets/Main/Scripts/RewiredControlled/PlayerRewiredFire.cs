@@ -33,7 +33,7 @@ namespace MageRoyale.RewiredBase
 				bullet.transform.position = WeaponTip.position;
 				bullet.transform.rotation = _transform.rotation;
 
-				var angle = _transform.rotation.eulerAngles.y - 90;
+				var angle = _transform.rotation.eulerAngles.y;//- 90;
 				var radians = angle * Mathf.Deg2Rad;
 				var vForce = new Vector2((float)Mathf.Sin(radians), (float)Mathf.Cos(radians)) * FireShakeForce;
 

@@ -39,7 +39,7 @@ namespace Com.LuisPedroFonseca.ProCamera2D.TopDownShooter
                 return;
 
             _lastPos = _transform.position;
-            _transform.Translate(Vector3.right * BulletSpeed * Time.deltaTime);
+            _transform.Translate(Vector3.forward * BulletSpeed * Time.deltaTime);
 
             if(Physics.Raycast(_lastPos, _transform.position - _lastPos, out _raycastHit, (_lastPos - _transform.position).magnitude + SkinWidth, CollisionMask))
             {

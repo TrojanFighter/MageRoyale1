@@ -9,7 +9,7 @@ namespace MageRoyale.RewiredBase
         private Vector3 moveVector;
         private bool fire;
 
-        public bool bturnwithMouse;
+        public bool bturnwithMouse,blockOnGround=true;
         
         public float _TurnRateEase = .15f;
         
@@ -59,6 +59,7 @@ namespace MageRoyale.RewiredBase
             //GetInput();
             //ProcessInput();
             TurnWithMouse();
+            CheckGround();
         }
         
         protected override void GetInput() {
@@ -88,6 +89,7 @@ namespace MageRoyale.RewiredBase
 
                 _amountToMove.x = _currentSpeedH;
                 _amountToMove.z = _currentSpeedV;
+                _amountToMove.y = 0;
                 
                 //_rigidBody.MovePosition(_rigidBody.position+ _amountToMove * Time.deltaTime);
 
@@ -103,6 +105,14 @@ namespace MageRoyale.RewiredBase
             }*/
         }
 
+        private void CheckGround()
+        {
+            if (blockOnGround&&transform.position.y > 0)
+            {
+                transform.position=new Vector3(transform.position.x,0,transform.position.z);
+            }
+        }
+
         private void TurnWithMouse()
         {
             if (bturnwithMouse)
@@ -113,7 +123,7 @@ namespace MageRoyale.RewiredBase
                     var screenPoint = Camera.main.WorldToScreenPoint(_transform.localPosition);
                     var offset = new Vector2(mouse.x - screenPoint.x, mouse.y - screenPoint.y);
                     var angle = Mathf.Atan2(offset.y, offset.x) * Mathf.Rad2Deg;
-                    transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, -angle, 0), _TurnRateEase);
+                    transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, 90-angle, 0), _TurnRateEase);
                 }
             }
         }

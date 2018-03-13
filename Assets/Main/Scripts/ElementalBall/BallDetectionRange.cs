@@ -136,11 +136,12 @@ namespace MageRoyale.ElementalBall
 
 
 		//tool methods
+		
 		public bool CheckInCone(Transform toCheck)
 		{
 			maxCosAngle = Mathf.Cos(DetectionAngleInDegrees * Mathf.Deg2Rad / 2.0f);
 
-			Vector3 difference = transform.position - toCheck.position;
+			Vector3 difference =  toCheck.position-m_hostBall.transform.position ;
         //Check if it's within range of the arc
 			if (difference.magnitude < maxDistance)
 			{
