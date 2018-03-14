@@ -54,11 +54,13 @@ namespace MageRoyale.ElementalBall
 			if ((transform.position-lastFramePosition).sqrMagnitude>0f)//(m_rigidBody.velocity.sqrMagnitude>0f)//(transform.position-lastFramePosition).sqrMagnitude>0f)
 			{
 				lastDirection=(transform.position-lastFramePosition).normalized;
-				//m_turnableRoot.forward=lastDirection;
+				m_turnableRoot.forward=lastDirection;
+				//Debug.DrawLine(transform.position,transform.position+lastDirection*5f);
 			}
 			else
 			{
-				//m_turnableRoot.forward=lastDirection;
+				m_turnableRoot.forward=lastDirection;
+				//Debug.DrawLine(transform.position,transform.position+lastDirection*5f);
 			}
 
 			lastFramePosition = transform.position;
