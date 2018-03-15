@@ -204,9 +204,11 @@
     <Compile Include="Assets\Main\Scripts\Base\MonoBehaviourEX.cs" />
     <Compile Include="Assets\Main\Scripts\Base\Singleton.cs" />
     <Compile Include="Assets\Main\Scripts\Define\GameEvent.cs" />
+    <Compile Include="Assets\Main\Scripts\Define\GlobalDefine.cs" />
+    <Compile Include="Assets\Main\Scripts\ElementalBall\BallCollisionDetector.cs" />
     <Compile Include="Assets\Main\Scripts\ElementalBall\BallDetectionRange.cs" />
     <Compile Include="Assets\Main\Scripts\ElementalBall\BallMovement.cs" />
-    <Compile Include="Assets\Main\Scripts\ElementalBall\ElementalBall.cs" />
+    <Compile Include="Assets\Main\Scripts\ElementalBall\BallTrackingGuidance.cs" />
     <Compile Include="Assets\Main\Scripts\Entity\BallEntity.cs" />
     <Compile Include="Assets\Main\Scripts\Entity\EntityBase.cs" />
     <Compile Include="Assets\Main\Scripts\Entity\PlayerEntity.cs" />
@@ -442,6 +444,15 @@
     <Reference Include="UnityEngine.StandardEvents">
       <HintPath>C:/Users/MusketeerOrder/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.10/UnityEngine.StandardEvents.dll</HintPath>
     </Reference>
+    <Reference Include="RelationsInspector">
+      <HintPath>F:/UnityProjects/MageRoyale1/Assets/Plugins/Editor/RelationsInspector/RelationsInspector.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
+      <Project>{E4A74502-6E65-DD75-D8AD-67C3495E2CFA}</Project>
+      <Name>Assembly-CSharp-firstpass</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

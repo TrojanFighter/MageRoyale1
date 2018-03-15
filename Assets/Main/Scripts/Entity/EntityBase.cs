@@ -5,7 +5,7 @@ namespace MageRoyale.Entity
 {
 	public class EntityBase : MonoBehaviour
 	{
-		public int entityId = 0;
+		public int entityId = -1;
 
 		protected virtual void Start()
 		{
@@ -26,6 +26,12 @@ namespace MageRoyale.Entity
 				Debug.Log("EntityCreationFailed: "+gameObject.name);
 				return false;
 			}
+		}
+
+		public virtual void SelfDestroy()
+		{
+			ServiceList.GameEntityManager.UnRegisterEntity(entityId);
+			Destroy(gameObject);
 		}
 	}
 }

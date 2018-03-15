@@ -44,5 +44,18 @@ namespace MageRoyale.Services
 				return -1;
 			}
 		}
+		
+		public bool UnRegisterEntity(int entityid)
+		{
+			if (!m_entityDic.ContainsKey(entityid))
+			{
+				return false;
+			}
+			else
+			{
+				m_entityDic.Remove(entityid);
+				return true;
+			}
+		}
 	}
 }

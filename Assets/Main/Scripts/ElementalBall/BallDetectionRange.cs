@@ -8,7 +8,7 @@ namespace MageRoyale.ElementalBall
 	public class BallDetectionRange : MonoBehaviour
 	{
 
-		public ElementalBall m_hostBall;
+		public BallTrackingGuidance MHostBallTrackingGuidance;
 		public LayerMask trackingLayer;
 		public List<PlayerEntity> m_rawTrackingPlayerList,m_trueTrackingPlayerList;
 		public Transform m_pursuingTarget;
@@ -22,9 +22,9 @@ namespace MageRoyale.ElementalBall
 			//trackingLayer = LayerMask.NameToLayer("PlayerCollider");
 			m_rawTrackingPlayerList=new List<PlayerEntity>();
 			m_trueTrackingPlayerList=new List<PlayerEntity>();
-			if (m_hostBall == null)
+			if (MHostBallTrackingGuidance == null)
 			{
-				m_hostBall = transform.parent.GetComponent<ElementalBall>();
+				MHostBallTrackingGuidance = transform.parent.GetComponent<BallTrackingGuidance>();
 			}
 		}
 
@@ -122,7 +122,7 @@ namespace MageRoyale.ElementalBall
 		public bool TriggerTracking(Transform target)
 		{
 			m_pursuingTarget = target;
-			m_hostBall.m_CurrentTarget = target;
+			MHostBallTrackingGuidance.m_CurrentTarget = target;
 			if (target != null)
 			{
 				Debug.Log("Now Tracking"+target);
@@ -141,7 +141,7 @@ namespace MageRoyale.ElementalBall
 		{
 			maxCosAngle = Mathf.Cos(DetectionAngleInDegrees * Mathf.Deg2Rad / 2.0f);
 
-			Vector3 difference =  toCheck.position-m_hostBall.transform.position ;
+			Vector3 difference =  toCheck.position-MHostBallTrackingGuidance.transform.position ;
         //Check if it's within range of the arc
 			if (difference.magnitude < maxDistance)
 			{
