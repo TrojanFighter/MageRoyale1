@@ -149,7 +149,7 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1523468419671586}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -204,7 +204,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 116
+  m_Constraints: 112
   m_CollisionDetection: 2
 --- !u!114 &114050785209314104
 MonoBehaviour:
@@ -217,7 +217,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64ae942eb3b0c0e4e95bfd120d111304, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MHostBallTrackingGuidance: {fileID: 0}
+  m_hostBallEntity: {fileID: 114165711333173726}
 --- !u!114 &114165711333173726
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -230,6 +230,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entityId: 0
+  DamageToPlayer: 30
+  m_Guidance: {fileID: 114626524762062160}
 --- !u!114 &114310731989283424
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -241,7 +243,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f5827c714f2ad54b9e0c2c1d147e93c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MHostBallTrackingGuidance: {fileID: 0}
+  m_BallTrackingGuidance: {fileID: 114626524762062160}
   trackingLayer:
     serializedVersion: 2
     m_Bits: 256
@@ -265,6 +267,7 @@ MonoBehaviour:
   m_BallMovement: {fileID: 114927955866461320}
   m_turnableRoot: {fileID: 4650331807810486}
   m_rigidBody: {fileID: 54609211399344864}
+  _renderer: {fileID: 23044908255109176}
 --- !u!114 &114927955866461320
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -279,6 +282,7 @@ MonoBehaviour:
   TurnForce: 1
   GuidanceVectorForce: 400
   PropellForce: 400
+  initForce: 20
   m_guideForceDirection: {x: 0, y: 0, z: 0}
 --- !u!135 &135457040387697746
 SphereCollider:

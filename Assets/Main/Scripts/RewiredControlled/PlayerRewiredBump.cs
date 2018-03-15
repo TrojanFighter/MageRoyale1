@@ -15,12 +15,35 @@ namespace MageRoyale.RewiredBase
 		public float FireRate = .1f;
 		public float FireShakeForce = .8f;
 		public float FireShakeDuration = .02f;
+
+		public float FireGapTime = 4f;
+		private float lastFireTime=-4f;
+
+		public GameObject m_forceFieldIndicator;
 		
 		protected override void GetInput()
 		{
-			if (_functionAllowed&& player.GetButtonDown("Bump"))
+			if (!_functionAllowed)
 			{
-				StartCoroutine(Bump());
+				return;
+			}
+
+			if (Time.timeSinceLevelLoad - lastFireTime > FireGapTime)
+			{
+				if (player.GetButtonDown("Bump"))
+				{
+					StartCoroutine(Bump());
+					lastFireTime = Time.timeSinceLevelLoad;
+					//m_forceFieldIndicator.SetActive(false);
+				}
+				else
+				{
+					m_forceFieldIndicator.SetActive(true);
+				}
+			}
+			else
+			{
+				m_forceFieldIndicator.SetActive(false);
 			}
 		}
 		

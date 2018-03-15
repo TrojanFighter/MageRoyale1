@@ -12,12 +12,12 @@ namespace MageRoyale.Entity
 		public int Health = 100;
 		
 		
-		Renderer[] _renderers;
+		public Renderer[] _renderers;
 		Color _originalColor;
 
-		protected override bool Init()
+		public override bool Init()
 		{
-			_renderers = GetComponentsInChildren<Renderer>();
+			//_renderers = GetComponentsInChildren<Renderer>();
 			_originalColor = _renderers[0].material.color;
 			return base.Init();
 		}

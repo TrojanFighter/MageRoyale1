@@ -8,7 +8,7 @@ namespace MageRoyale.ElementalBall
 	public class BallDetectionRange : MonoBehaviour
 	{
 
-		public BallTrackingGuidance MHostBallTrackingGuidance;
+		public BallTrackingGuidance m_BallTrackingGuidance;
 		public LayerMask trackingLayer;
 		public List<PlayerEntity> m_rawTrackingPlayerList,m_trueTrackingPlayerList;
 		public Transform m_pursuingTarget;
@@ -22,9 +22,9 @@ namespace MageRoyale.ElementalBall
 			//trackingLayer = LayerMask.NameToLayer("PlayerCollider");
 			m_rawTrackingPlayerList=new List<PlayerEntity>();
 			m_trueTrackingPlayerList=new List<PlayerEntity>();
-			if (MHostBallTrackingGuidance == null)
+			if (m_BallTrackingGuidance == null)
 			{
-				MHostBallTrackingGuidance = transform.parent.GetComponent<BallTrackingGuidance>();
+				m_BallTrackingGuidance = transform.parent.GetComponent<BallTrackingGuidance>();
 			}
 		}
 
@@ -79,6 +79,11 @@ namespace MageRoyale.ElementalBall
 
 			for (int i = 0; i < m_rawTrackingPlayerList.Count; i++)
 			{
+				if (m_rawTrackingPlayerList[i] == null)
+				{
+					continue;
+				}
+
 				if (CheckInCone(m_rawTrackingPlayerList[i].transform))
 				{
 					Debug.Log("True Tracking Begins " + m_rawTrackingPlayerList[i].gameObject.name);
@@ -110,6 +115,12 @@ namespace MageRoyale.ElementalBall
 			Transform closestTarget = null;
 			for (int i = 0; i < m_trueTrackingPlayerList.Count; i++)
 			{
+				if (m_trueTrackingPlayerList[i] == null)
+				{
+					m_trueTrackingPlayerList.Remove(m_trueTrackingPlayerList[i]);
+					continue;;
+				}
+
 				if (SqrDistance(m_trueTrackingPlayerList[i].transform) <= closestDistance)
 				{
 					closestDistance = SqrDistance(m_trueTrackingPlayerList[i].transform);
@@ -122,7 +133,7 @@ namespace MageRoyale.ElementalBall
 		public bool TriggerTracking(Transform target)
 		{
 			m_pursuingTarget = target;
-			MHostBallTrackingGuidance.m_CurrentTarget = target;
+			m_BallTrackingGuidance.m_CurrentTarget = target;
 			if (target != null)
 			{
 				Debug.Log("Now Tracking"+target);
@@ -141,7 +152,7 @@ namespace MageRoyale.ElementalBall
 		{
 			maxCosAngle = Mathf.Cos(DetectionAngleInDegrees * Mathf.Deg2Rad / 2.0f);
 
-			Vector3 difference =  toCheck.position-MHostBallTrackingGuidance.transform.position ;
+			Vector3 difference =  toCheck.position-m_BallTrackingGuidance.transform.position ;
         //Check if it's within range of the arc
 			if (difference.magnitude < maxDistance)
 			{

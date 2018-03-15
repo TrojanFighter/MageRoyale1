@@ -7,11 +7,13 @@ namespace MageRoyale.ElementalBall
 
 	public class BallMovement : MonoBehaviour
 	{
-
+		private bool inited = false;
 // Public vars
 		public float TurnForce = 10f;
 		public float GuidanceVectorForce = 10f;
 		public float PropellForce = 20f;
+		public float initForce = 2000f;
+		
 		private Rigidbody _rigidbody;
 
 		//public Quaternion m_logicalPropulsionDirection, m_internalGuidanceDirection;
@@ -26,14 +28,24 @@ namespace MageRoyale.ElementalBall
 
 		void Start()
 		{
-			_rigidbody = GetComponent<Rigidbody>();
+			Init();
 			//m_logicalPropulsionDirection = transform.rotation;
+		}
+
+		void Init()
+		{
+			if (inited)
+			{
+				return;
+			}
+			_rigidbody = GetComponent<Rigidbody>();
+			inited = true;
 		}
 
 		// Turn to a direction
 		public void TurnTo(Vector3 _targetdir)
 		{
-			Debug.Log("Turning to direction"+_targetdir);
+			//Debug.Log("Turning to direction"+_targetdir);
 			_targetdir.Normalize();
 			_targetdir.y = transform.position.y;
 
@@ -117,6 +129,15 @@ namespace MageRoyale.ElementalBall
 			} else {
 				return 0;
 			}
+		}
+		
+		public void InitThrust()
+		{
+			Init();
+			//_rigidbody.AddForce(transform.TransformDirection(Vector3.forward) * GuidanceVectorForce * Time.deltaTime);
+			//_rigidbody.AddForce(m_logicalPropulsionDirection.eulerAngles * GuidanceVectorForce * Time.deltaTime);
+			_rigidbody.AddForce(transform.TransformDirection(Vector3.forward) *initForce,ForceMode.Impulse);
+			
 		}
 	}
 }

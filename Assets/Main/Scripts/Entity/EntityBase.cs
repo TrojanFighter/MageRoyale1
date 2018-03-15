@@ -7,18 +7,26 @@ namespace MageRoyale.Entity
 	{
 		public int entityId = -1;
 
+		private bool inited = false;
+
 		protected virtual void Start()
 		{
 			Init();
 		}
 
 
-		protected virtual bool Init()
+		public virtual bool Init()
 		{
+			if (inited)
+			{
+				return false;
+			}
+
 			int id= Services.ServiceList.GameEntityManager.RegisterEntity(this);
 			if (id != -1)
 			{
 				entityId = id;
+				inited = true;
 				return true;
 			}
 			else

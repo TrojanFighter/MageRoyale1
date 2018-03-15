@@ -15,6 +15,12 @@ namespace MageRoyale.ElementalBall
 		public Transform m_turnableRoot;
 		public Rigidbody m_rigidBody;
 		private Vector3 lastDirection;
+
+		private bool bThrustInited=false;
+
+		public Renderer _renderer;
+
+		private Color _originalcolor;
 		//private Vector3 lastFramePosition;
 
 		//public float TurnSpeed;
@@ -28,12 +34,31 @@ namespace MageRoyale.ElementalBall
 			// If follow is null, then pick the player.
 			m_BallMovement = GetComponent<BallMovement>();
 			m_rigidBody = GetComponent<Rigidbody>();
+			_originalcolor = _renderer.material.color;
+			_renderer.material.color = Color.grey;
+		}
+
+		public void InitThrust()
+		{
+			if (!bThrustInited)
+			{
+				m_BallMovement.InitThrust();
+				_renderer.material.color = _originalcolor;
+				bThrustInited = true;
+			}
 		}
 
 		// Update is called once per frame
 		void FixedUpdate()
 		{
-
+			if (transform.position.y > 0.5f)
+			{
+				return;
+			}
+			else
+			{
+				InitThrust();
+			}
 			//return;
 
 			
