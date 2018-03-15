@@ -18,16 +18,18 @@ namespace MageRoyale.Services
 			// Initialize your services in the order         
 			// and with the parameters you need
 
-			Services.GameSceneManager = new GameSceneManager();//gameObject.AddComponent<GameSceneManager>();
-			Services.TaskManager=new TaskManager();
+			ServiceList.GameSceneManager = new GameSceneManager();//gameObject.AddComponent<GameSceneManager>();
+			ServiceList.TaskManager=new TaskManager();
+			ServiceList.GameEntityManager=new GameEntityManager();
 
 		}
 
 		public void Update()
 		{
 			// Retrieve the services as needed       
-			Services.GameSceneManager.Update();
-			Services.TaskManager.Update();
+			ServiceList.GameSceneManager.Update();
+			ServiceList.TaskManager.Update();
+			ServiceList.GameEntityManager.Update();
 
 		}
 
@@ -35,7 +37,7 @@ namespace MageRoyale.Services
 		{
 			// Not tying your systems to a singleton also gives you
 			// some extra flexibility to change services at runtime         
-			//Services.Config = new Config("config/demo_config.json");
+			//ServiceList.Config = new Config("config/demo_config.json");
 		}
 
 		public void OnDestroy()
@@ -44,8 +46,9 @@ namespace MageRoyale.Services
 			// the order of destruction for your systems and also         
 			// do any additional work required to wind your systems down                 
 
-			Services.GameSceneManager.Destroy();
-			Services.TaskManager.Destroy();
+			ServiceList.GameSceneManager.Destroy();
+			ServiceList.TaskManager.Destroy();
+			ServiceList.GameEntityManager.Destroy();
 		}
 	}
 }

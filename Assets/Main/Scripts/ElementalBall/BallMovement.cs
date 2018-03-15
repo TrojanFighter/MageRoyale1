@@ -89,7 +89,7 @@ namespace MageRoyale.ElementalBall
 			Turn(force);*/
 		}
 
-		//旋转后指向力方向 不适用矢量推进
+		//旋转后指向力方向 不适用弹球矢量推进
 		public void Turn(float _val)
 		{
 			_val = Mathf.Clamp(_val, -TurnForce, TurnForce);

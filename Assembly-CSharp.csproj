@@ -215,10 +215,11 @@
     <Compile Include="Assets\Main\Scripts\RewiredControlled\PlayerRewiredFire.cs" />
     <Compile Include="Assets\Main\Scripts\RewiredControlled\PlayerRewiredLaunch.cs" />
     <Compile Include="Assets\Main\Scripts\RewiredControlled\RewiredBase.cs" />
-    <Compile Include="Assets\Main\Scripts\Services\GameSceneManager.cs" />
+    <Compile Include="Assets\Main\Scripts\Services\Entity\GameEntityManager.cs" />
     <Compile Include="Assets\Main\Scripts\Services\GameServiceManager.cs" />
+    <Compile Include="Assets\Main\Scripts\Services\Scene\GameSceneManager.cs" />
     <Compile Include="Assets\Main\Scripts\Services\ServiceBase.cs" />
-    <Compile Include="Assets\Main\Scripts\Services\Services.cs" />
+    <Compile Include="Assets\Main\Scripts\Services\ServiceList.cs" />
     <Compile Include="Assets\Main\Scripts\Services\Tasks\Task.cs" />
     <Compile Include="Assets\Main\Scripts\Services\Tasks\TaskManager.cs" />
     <Compile Include="Assets\Main\Scripts\Services\Tasks\Tasks.cs" />
