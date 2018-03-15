@@ -96,11 +96,11 @@ namespace Com.LuisPedroFonseca.ProCamera2D
                 EditorGUILayout.EndHorizontal();
             }
 
-            // Pixel Scale
-            _tooltip = new GUIContent("Sprite Scale", "The scale of this sprite");
+            // Pixel ScaleTask
+            _tooltip = new GUIContent("Sprite ScaleTask", "The scale of this sprite");
             EditorGUILayout.PropertyField(serializedObject.FindProperty("SpriteScale"), _tooltip);
 
-            // Scale 0 warning
+            // ScaleTask 0 warning
             if (proCamera2DPixelPerfectSprite.SpriteScale == 0)
             {
                 EditorGUILayout.HelpBox("A scale of 0 allows you to manually scale the sprite, however, it doesn't guarantee that it will be pixel-perfect. Use a scale different than 0 to guarantee your sprite size is pixel-perfect.", MessageType.Warning, true);

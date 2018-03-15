@@ -83,7 +83,7 @@ namespace Com.LuisPedroFonseca.ProCamera2D
 			_tooltip = new GUIContent("Viewport AutoScale", "If not None, the camera will automatically calculate the best scale across all resolutions based on the art viewport.");
 			EditorGUILayout.PropertyField(serializedObject.FindProperty("ViewportAutoScale"), _tooltip);
 
-			// Viewport Scale
+			// Viewport ScaleTask
 			if (proCamera2DPixelPerfect.ViewportAutoScale != AutoScaleMode.None)
 			{
 				GUI.enabled = false;

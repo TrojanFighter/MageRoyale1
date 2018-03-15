@@ -166,9 +166,9 @@ namespace Com.LuisPedroFonseca.ProCamera2D
 					element.FindPropertyRelative("TransitionDuration"), GUIContent.none);
 
 #if UNITY_5
-				EditorGUI.PrefixLabel(new Rect(rect.x, rect.y + 70, 65, 10), new GUIContent("Scale To Fit", "If checked, the camera will resize to fit the room"), EditorStyles.boldLabel);
+				EditorGUI.PrefixLabel(new Rect(rect.x, rect.y + 70, 65, 10), new GUIContent("ScaleTask To Fit", "If checked, the camera will resize to fit the room"), EditorStyles.boldLabel);
 #else
-                    EditorGUI.PrefixLabel(new Rect(rect.x, rect.y + 70, 65, 10), new GUIContent("Scale To Fit", "If checked, the camera will resize to fit the room"));
+                    EditorGUI.PrefixLabel(new Rect(rect.x, rect.y + 70, 65, 10), new GUIContent("ScaleTask To Fit", "If checked, the camera will resize to fit the room"));
 #endif
 				EditorGUI.PropertyField(new Rect(
 						rect.x + 80,
@@ -193,9 +193,9 @@ namespace Com.LuisPedroFonseca.ProCamera2D
 
 				GUI.enabled = !element.FindPropertyRelative("ScaleCameraToFit").boolValue && element.FindPropertyRelative("Zoom").boolValue;
 #if UNITY_5
-				EditorGUI.PrefixLabel(new Rect(rect.x + 200, rect.y + 70, 65, 10), new GUIContent("Scale", "The zoom scale"), EditorStyles.boldLabel);
+				EditorGUI.PrefixLabel(new Rect(rect.x + 200, rect.y + 70, 65, 10), new GUIContent("ScaleTask", "The zoom scale"), EditorStyles.boldLabel);
 #else
-                    EditorGUI.PrefixLabel(new Rect(rect.x + 200, rect.y + 70, 65, 10), new GUIContent("Scale", "The zoom scale"));
+                    EditorGUI.PrefixLabel(new Rect(rect.x + 200, rect.y + 70, 65, 10), new GUIContent("ScaleTask", "The zoom scale"));
 #endif
 				EditorGUI.PropertyField(new Rect(
 						rect.x + 260,

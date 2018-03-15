@@ -24,7 +24,7 @@ public class GUIManager : MonoBehaviour {
 		// Load the skin
 		GUI.skin = Skin;
 		
-		// Scale the GUI stuff so that it stretches across the screen.
+		// ScaleTask the GUI stuff so that it stretches across the screen.
 		float xRatio = Screen.width / 800.0f;
 		float yRatio = Screen.height / 600.0f;
 		GUI.matrix = Matrix4x4.TRS(new Vector3(0, 0, 0), Quaternion.identity, new Vector3(xRatio, yRatio, 1));		

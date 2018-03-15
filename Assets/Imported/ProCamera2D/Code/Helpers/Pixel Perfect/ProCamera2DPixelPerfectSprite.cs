@@ -136,7 +136,7 @@ namespace Com.LuisPedroFonseca.ProCamera2D
                 Utils.AlignToGrid(Vector3V(_transform.position), _pixelPerfectPlugin.PixelStep),
                 Vector3D(_transform.position));
 
-            // Scale
+            // ScaleTask
             if (SpriteScale == 0)
             {
                 //The user was at 0 scale the last update, so save the current scale
