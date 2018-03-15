@@ -1,4 +1,5 @@
 ﻿using System;
+using MageRoyale.Services.Event;
 using MageRoyale.Services.Task;
 using UnityEngine;
 
@@ -19,8 +20,9 @@ namespace MageRoyale.Services
 			// and with the parameters you need
 
 			ServiceList.GameSceneManager = new GameSceneManager();//gameObject.AddComponent<GameSceneManager>();
-			ServiceList.TaskManager=new TaskManager();
 			ServiceList.GameEntityManager=new GameEntityManager();
+			ServiceList.TaskManager=new TaskManager();
+			ServiceList.EventManager=new EventManager();
 
 		}
 
@@ -28,8 +30,9 @@ namespace MageRoyale.Services
 		{
 			// Retrieve the services as needed       
 			ServiceList.GameSceneManager.Update();
-			ServiceList.TaskManager.Update();
 			ServiceList.GameEntityManager.Update();
+			ServiceList.TaskManager.Update();
+			ServiceList.EventManager.Update();
 
 		}
 
@@ -47,8 +50,9 @@ namespace MageRoyale.Services
 			// do any additional work required to wind your systems down                 
 
 			ServiceList.GameSceneManager.Destroy();
-			ServiceList.TaskManager.Destroy();
 			ServiceList.GameEntityManager.Destroy();
+			ServiceList.TaskManager.Destroy();
+			ServiceList.EventManager.Destroy();
 		}
 	}
 }

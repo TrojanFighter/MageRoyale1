@@ -1,4 +1,5 @@
 ﻿using MageRoyale.Services.Task;
+using MageRoyale.Services.Event;
 using UnityEngine;
 
 namespace MageRoyale.Services
@@ -17,7 +18,19 @@ namespace MageRoyale.Services
 			}
 			set { _gameSceneManager = value; }
 		}
+		
+		private static GameEntityManager _gameEntityManager;
 
+		public static GameEntityManager GameEntityManager
+		{
+			get
+			{
+				Debug.Assert(_gameEntityManager != null);
+				return _gameEntityManager;
+			}
+			set { _gameEntityManager = value; }
+		}
+		
 		private static TaskManager _taskManager;
 
 		public static TaskManager TaskManager
@@ -30,16 +43,16 @@ namespace MageRoyale.Services
 			set { _taskManager = value; }
 		}
 		
-		private static GameEntityManager _gameEntityManager;
+		private static EventManager _eventManager;
 
-		public static GameEntityManager GameEntityManager
+		public static EventManager EventManager
 		{
 			get
 			{
-				Debug.Assert(_gameEntityManager != null);
-				return _gameEntityManager;
+				Debug.Assert(_eventManager != null);
+				return _eventManager;
 			}
-			set { _gameEntityManager = value; }
+			set { _eventManager = value; }
 		}
 
 		// etc... 
