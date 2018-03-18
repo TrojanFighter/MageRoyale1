@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using MageRoyale.Entity;
 using MageRoyale.Services;
 using MageRoyale.Services.Task;
@@ -29,7 +30,19 @@ namespace GPP
 		public Transform  EnemySpawnPoint;
 
 		public BossStage m_bossStage;
-		
+
+		public GameObject lastSpawnedEnemy;
+
+		public void Hit(int damage)
+		{
+			HP -= damage;
+			Debug.Log("Now Stage: "+m_bossStage+" Health: "+HP);
+			if (HP < 0)
+			{
+				Destroy(gameObject);
+			}
+		}
+
 		private void Start()
 		{
 			Appear();
@@ -57,20 +70,28 @@ namespace GPP
 			{
 				return;
 			}
-			else if (HP > 50&&m_bossStage!=BossStage.Spawn)
+			else if (HP >= 50&&m_bossStage!=BossStage.Spawn)
 			{
+				ServiceList.TaskManager.AbortAllTasks();
 				SetBossStage(BossStage.Spawn);
 				FirstStage();
 			}
-			else if(HP>15&&m_bossStage!=BossStage.Fire)
+			else if(HP>=15&&HP<50&&m_bossStage!=BossStage.Fire)
 			{
+				ServiceList.TaskManager.AbortAllTasks();
 				SetBossStage(BossStage.Fire);
 				SecondStage();
 			}
-			else if(m_bossStage!=BossStage.Chase)
+			else if(HP<15&&m_bossStage!=BossStage.Chase)
 			{
+				ServiceList.TaskManager.AbortAllTasks();
 				SetBossStage(BossStage.Chase);
 				ThirdStage();
+			}
+			else if(HP<0)
+			{
+				ServiceList.TaskManager.AbortAllTasks();
+				//Destroy(gameObject);
 			}
 		}
 
@@ -95,7 +116,20 @@ namespace GPP
 
 		private void FirstStage()
 		{
-			ServiceList.TaskManager.Do(new SpawnTask(EnemyPrefabToSpawn, EnemySpawnPoint.position, EnemySpawnPoint.rotation));
+			ServiceList.TaskManager.Do(new SpawnTask(EnemyPrefabToSpawn, EnemySpawnPoint.position, EnemySpawnPoint.rotation, out lastSpawnedEnemy)).Then(new ActionTask(CheckLastSpawnedEnemy));
+		}
+
+		void CheckLastSpawnedEnemy()
+		{
+			if (m_bossStage != BossStage.Spawn)
+			{
+				return;
+			}
+
+			if (lastSpawnedEnemy != null)
+			{
+				return;
+			}
 		}
 
 		private void SecondStage()
@@ -111,7 +145,7 @@ namespace GPP
 
 		void SpawnByTime()
 		{
-			ServiceList.TaskManager.Do(new SpawnTask(EnemyPrefabToSpawn, EnemySpawnPoint.position, EnemySpawnPoint.rotation)).Then(new Wait(3f)).Then(new ActionTask(SpawnByTime));
+			ServiceList.TaskManager.Do(new SpawnTask(EnemyPrefabToSpawn, EnemySpawnPoint.position, EnemySpawnPoint.rotation,out lastSpawnedEnemy)).Then(new Wait(3f)).Then(new ActionTask(SpawnByTime));
 		}
 
 		void ChasePlayer()

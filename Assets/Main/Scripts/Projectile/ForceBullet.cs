@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using GPP;
 using MageRoyale.Entity;
 using MageRoyale.RewiredBase;
 
@@ -14,7 +15,7 @@ namespace MageRoyale.Projectile
 		public LayerMask CollisionMask;
 
 		public float  PushForce = 300f, PushDistance = 0.4f;
-		//public float BulletDamage = 10f,ForceRadius=2f;
+		public int BulletDamage = 5;//,ForceRadius=2f;
 
 		Transform _transform;
 
@@ -61,8 +62,12 @@ namespace MageRoyale.Projectile
 		{
 			_exploding = true;
 			//_transform.position = _collisionPoint;
+			if(_raycastHit.collider.GetComponent<ArenaBoss>())
+			{
+				_raycastHit.collider.GetComponent<ArenaBoss>().Hit(BulletDamage);
+			}
 
-			if (_raycastHit.collider.GetComponent<Rigidbody>())
+			else if (_raycastHit.collider.GetComponent<Rigidbody>())
 			{
 				//_raycastHit.collider.SendMessageUpwards("Hit", BulletDamage, SendMessageOptions.DontRequireReceiver);
 				//_raycastHit.collider.attachedRigidbody.AddExplosionForce(PushForce, transform.position, ForceRadius, 0F);
@@ -73,6 +78,7 @@ namespace MageRoyale.Projectile
 			{
 				_raycastHit.collider.GetComponent<PlayerRewiredControl>().PushedBack(_transform.forward * PushDistance);
 			}
+
 
 			Disable();
 		}

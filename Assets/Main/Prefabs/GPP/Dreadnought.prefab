@@ -183,7 +183,7 @@ GameObject:
   - component: {fileID: 4368556313291518}
   - component: {fileID: 54804083097834218}
   - component: {fileID: 65058663411639288}
-  - component: {fileID: 114557758425381984}
+  - component: {fileID: 114942525428172436}
   m_Layer: 11
   m_Name: Dreadnought
   m_TagString: Untagged
@@ -537,7 +537,7 @@ Transform:
   m_GameObject: {fileID: 1297314588136582}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 0.6}
   m_Children:
   - {fileID: 4190941737182200}
   - {fileID: 4718858066201142}
@@ -1939,7 +1939,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114557758425381984
+--- !u!114 &114942525428172436
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -1947,29 +1947,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1297314588136582}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7ace15c2907a4a45b24d6168477a895, type: 3}
+  m_Script: {fileID: 11500000, guid: a31ad0fcf24ffd34585d39b2e0e55553, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  missilePrefab: {fileID: 100010, guid: 5a4dab58d40950146acbd98d5bc5b3da, type: 2}
-  silos:
-  - {fileID: 4039951295478294}
-  - {fileID: 4870870600100958}
-  - {fileID: 4752598444740342}
-  - {fileID: 4495186282242240}
-  - {fileID: 4076404432894880}
-  - {fileID: 4829934860337328}
-  - {fileID: 4504605047267842}
-  - {fileID: 4771106553313446}
-  - {fileID: 4514666227434060}
-  - {fileID: 4104737147132476}
-  - {fileID: 4933659553472482}
-  - {fileID: 4576157505345846}
-  - {fileID: 4619966956261742}
-  - {fileID: 4990699232591432}
-  - {fileID: 4042426741554590}
-  - {fileID: 4973482853566496}
-  - {fileID: 4915335042383940}
-  - {fileID: 4137087939390854}
-  - {fileID: 4192409644858182}
-  - {fileID: 4343423086332242}
-  target: {fileID: 0}
+  HP: 100
+  _originalScale: {x: 1, y: 1, z: 0.6}
+  EnemyPrefabToSpawn: {fileID: 1357435986430142, guid: 54c54db1681b81b4ab77016ff1bbd617,
+    type: 2}
+  targetPlayer: {fileID: 0}
+  firePortGO: {fileID: 1350900057595464}
+  EnemySpawnPoint: {fileID: 4718858066201142}
+  m_bossStage: 0

@@ -243,20 +243,21 @@ namespace MageRoyale.Services.Task
 
         public readonly GameObject prefabToSpawn;
         public Vector3 SpawnPosition { get; private set; }
-        private GameObject SpawnedGO;
+        //sprivate GameObject SpawnedGO;
         private Quaternion SpawnRotation;
 
-        public SpawnTask(GameObject prefab, Vector3 spawnPosition, Quaternion spawnRotation) 
+        public SpawnTask(GameObject prefab, Vector3 spawnPosition, Quaternion spawnRotation, out GameObject SpawnedGO) 
         {
             SpawnPosition = spawnPosition;
             prefabToSpawn = prefab;
             SpawnRotation = spawnRotation;
             //SpawnedGO=UnityEngine.GameObject.Instantiate(prefabToSpawn,)
+            SpawnedGO = UnityEngine.GameObject.Instantiate(prefabToSpawn, SpawnPosition, SpawnRotation);
         }
 
         protected override void Init()
         {
-            SpawnedGO = UnityEngine.GameObject.Instantiate(prefabToSpawn, SpawnPosition, SpawnRotation);
+            
             SetStatus(TaskStatus.Success);
         }
     }

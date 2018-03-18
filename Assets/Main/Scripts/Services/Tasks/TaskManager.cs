@@ -69,5 +69,15 @@ namespace MageRoyale.Services.Task
             _tasks.RemoveAt(taskIndex);
             task.SetStatus(Task.TaskStatus.Detached);
         }
+
+        public void AbortAllTasks()
+        {
+            for (var i = _tasks.Count - 1; i >= 0; --i)
+            {
+                var task = _tasks[i];
+
+                task.Abort();
+            }
+        }
     }
 }
