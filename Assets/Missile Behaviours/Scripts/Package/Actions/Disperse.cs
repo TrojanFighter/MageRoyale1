@@ -130,7 +130,7 @@ namespace MissileBehaviours.Actions
                 wasTriggered = true;
                 isRunning = true;
                 elapsedTime = 0;
-                // Rotate the missile on its forward axis.
+                // RotateTask the missile on its forward axis.
                 transform.Rotate(transform.forward * Random.Range(-180, 180), Space.World);
             }
         }
@@ -162,7 +162,7 @@ namespace MissileBehaviours.Actions
             }
 
             // If the life time of the object is greater than the set delay, we run the actual script. 
-            // If we are considering the controllers maximum rotation speed, we rotate by using the controllers Rotate method, instead of using the transform directly.
+            // If we are considering the controllers maximum rotation speed, we rotate by using the controllers RotateTask method, instead of using the transform directly.
             // Otherwise we just use the transform.
             if (elapsedTime > delay)
             {

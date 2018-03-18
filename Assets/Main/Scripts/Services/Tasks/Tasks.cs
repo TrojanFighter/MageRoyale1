@@ -1,5 +1,7 @@
 ﻿using System;
+using Com.LuisPedroFonseca.ProCamera2D.TopDownShooter;
 using UnityEngine;
+using System.Collections;
 
 namespace MageRoyale.Services.Task
 {
@@ -35,6 +37,52 @@ namespace MageRoyale.Services.Task
         public float StartTime { get; private set; }
 
         protected TimedTask(float duration)
+        {
+            Debug.Assert(duration > 0, "Cannot create a timed task with duration less than 0");
+            Duration = duration;
+        }
+
+        protected override void Init()
+        {
+            StartTime = Time.time;
+        }
+
+        internal override void Update()
+        {
+            var now = Time.time;
+            var elapsed = now - StartTime;
+            var t = Mathf.Clamp01(elapsed / Duration);
+            if (t >= 1)
+            {
+                OnElapsed();
+            }
+            else
+            {
+                OnTick(t);
+            }
+        }
+
+        // t is the normalized time for the task. E.g. if half the task's duration has elapsed then t == 0.5
+        // This is where subclasses will do most of their work
+        protected virtual void OnTick(float t)
+        {
+        }
+
+        // Default to being successful if we get to the end of the duration
+        protected virtual void OnElapsed()
+        {
+            SetStatus(TaskStatus.Success);
+        }
+
+    }
+    
+    
+    public abstract class CheckTask : Task
+    {
+        public float Duration { get; private set; }
+        public float StartTime { get; private set; }
+
+        protected CheckTask(float duration)
         {
             Debug.Assert(duration > 0, "Cannot create a timed task with duration less than 0");
             Duration = duration;
@@ -164,6 +212,101 @@ namespace MageRoyale.Services.Task
         protected override void OnTick(float t)
         {
             gameObject.transform.localScale = Vector3.Lerp(Start, End, t);
+        }
+    }
+    
+    public class RotateTask : TimedGOTask
+    {
+        private readonly Vector3 _startRotation, _endRotation;
+
+        public RotateTask(GameObject gameObject, Vector3 startRotation, Vector3 endRotation, float duration) : base(
+            gameObject, duration)
+        {
+            _startRotation = startRotation;
+            _endRotation = endRotation;
+        }
+
+        protected override void OnTick(float t)
+        {
+            gameObject.transform.rotation = Quaternion.Euler(Vector3.Lerp(_startRotation, _endRotation, t));
+        }
+    }
+    
+    /// <summary>
+    /// Boss Action Sector
+    /// </summary>
+    
+    public class SpawnTask : Task
+    {
+        //public Vector3 Start { get; private set; }
+        //public Vector3 End { get; private set; }
+
+        public readonly GameObject prefabToSpawn;
+        public Vector3 SpawnPosition { get; private set; }
+        private GameObject SpawnedGO;
+        private Quaternion SpawnRotation;
+
+        public SpawnTask(GameObject prefab, Vector3 spawnPosition, Quaternion spawnRotation) 
+        {
+            SpawnPosition = spawnPosition;
+            prefabToSpawn = prefab;
+            SpawnRotation = spawnRotation;
+            //SpawnedGO=UnityEngine.GameObject.Instantiate(prefabToSpawn,)
+        }
+
+        protected override void Init()
+        {
+            SpawnedGO = UnityEngine.GameObject.Instantiate(prefabToSpawn, SpawnPosition, SpawnRotation);
+            SetStatus(TaskStatus.Success);
+        }
+    }
+    
+    public class RandomFireTask : TimedGOTask
+    {
+        //public Vector3 Start { get; private set; }
+        //public Vector3 End { get; private set; }
+
+        public readonly GameObject bulletToFire;
+        public GameObject fireSourceObject;
+        
+        //public Vector3 FirePosition { get; private set; }
+        private int LongBurstLength;
+        private float fireRate;
+        private float lastFireTick=0f;
+        
+        public Pool BulletPool;
+
+        public RandomFireTask(GameObject fireSource, int longBurstLength,float duration) :base(fireSource, duration)
+        {
+            //FirePosition = firePosition;
+            fireSourceObject = fireSource;
+            LongBurstLength = longBurstLength;
+            fireRate = 1f / longBurstLength;
+            //SpawnedGO=UnityEngine.GameObject.Instantiate(prefabToSpawn,)
+        }
+
+        protected override void Init()
+        {
+            Pool poolObject = GameObject.FindObjectOfType((typeof(Pool))) as Pool;
+            BulletPool = poolObject;
+            
+            //SetStatus(TaskStatus.Success);
+        }
+        protected override void OnTick(float t)
+        {
+            if (t - lastFireTick >= fireRate)
+            {
+                Fire();
+                lastFireTick = t;
+            }
+        }
+
+        void Fire()
+        {
+                var bullet = BulletPool.nextThing; 
+                bullet.transform.position = fireSourceObject.transform.position;
+                bullet.transform.rotation = fireSourceObject.transform.rotation;
+                //yield return new WaitForSeconds(fireRate);
         }
     }
 }

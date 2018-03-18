@@ -41,7 +41,7 @@ namespace MissileBehaviours.Misc
             // Clamp the vertical rotation to avoid all the problems that can occur otherwise.
             rotationX = Mathf.Clamp(rotationX, -90, 90);
 
-            // Rotate depending on the input we got earlier.
+            // RotateTask depending on the input we got earlier.
             transform.localEulerAngles = new Vector3(rotationX, rotationY, transform.localEulerAngles.z);
 
             // Move depending on input.

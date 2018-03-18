@@ -90,11 +90,11 @@ namespace MissileBehaviours.Controller
                     Vector3 los = (controller.Target.position - transform.position).normalized;
                     Vector3 modifiedRotation = Vector3.Reflect(velocity, los);
 
-                    controller.Rotate(Quaternion.LookRotation(modifiedRotation)); // Use the Rotate function of the controller, instead of the transforms, to consider the rotation rate of the missile.
+                    controller.Rotate(Quaternion.LookRotation(modifiedRotation)); // Use the RotateTask function of the controller, instead of the transforms, to consider the rotation rate of the missile.
                 }
                 else
                 {
-                    controller.Rotate(Quaternion.LookRotation(controller.Target.position - transform.position, transform.up)); // Use the Rotate function of the controller, instead of the transforms, to consider the rotation rate of the missile.
+                    controller.Rotate(Quaternion.LookRotation(controller.Target.position - transform.position, transform.up)); // Use the RotateTask function of the controller, instead of the transforms, to consider the rotation rate of the missile.
                 }
 
                 previousDistance = currentDistance;

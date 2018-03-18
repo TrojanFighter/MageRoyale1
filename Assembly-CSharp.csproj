@@ -212,9 +212,10 @@
     <Compile Include="Assets\Main\Scripts\Entity\BallEntity.cs" />
     <Compile Include="Assets\Main\Scripts\Entity\EntityBase.cs" />
     <Compile Include="Assets\Main\Scripts\Entity\PlayerEntity.cs" />
-    <Compile Include="Assets\Main\Scripts\GPPSampleCode\Ball.cs" />
-    <Compile Include="Assets\Main\Scripts\GPPSampleCode\EnemyBehavior.cs" />
-    <Compile Include="Assets\Main\Scripts\GPPSampleCode\PlayerBehavior.cs" />
+    <Compile Include="Assets\Main\Scripts\GPP\ArenaBoss\ArenaBoss.cs" />
+    <Compile Include="Assets\Main\Scripts\GPP\GPPSampleCode\Ball.cs" />
+    <Compile Include="Assets\Main\Scripts\GPP\GPPSampleCode\EnemyBehavior.cs" />
+    <Compile Include="Assets\Main\Scripts\GPP\GPPSampleCode\PlayerBehavior.cs" />
     <Compile Include="Assets\Main\Scripts\Projectile\ForceBullet.cs" />
     <Compile Include="Assets\Main\Scripts\RewiredControlled\PlayerRewiredBump.cs" />
     <Compile Include="Assets\Main\Scripts\RewiredControlled\PlayerRewiredControl.cs" />
