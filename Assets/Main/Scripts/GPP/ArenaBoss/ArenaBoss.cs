@@ -112,23 +112,30 @@ namespace GPP
 
 		}
 		
-		
+		// How to monitor the enemy's death?
 
 		private void FirstStage()
 		{
-			ServiceList.TaskManager.Do(new SpawnTask(EnemyPrefabToSpawn, EnemySpawnPoint.position, EnemySpawnPoint.rotation, out lastSpawnedEnemy)).Then(new ActionTask(CheckLastSpawnedEnemy));
+			ServiceList.TaskManager.Do(new SpawnTask(EnemyPrefabToSpawn, EnemySpawnPoint.position, EnemySpawnPoint.rotation,out lastSpawnedEnemy));
 		}
+		
 
-		void CheckLastSpawnedEnemy()
+		bool CheckLastSpawnedEnemy()
 		{
+
+			//ServiceList.TaskManager.Do(new Wait(1f)).Then(new ActionTask(CheckLastSpawnedEnemy));
 			if (m_bossStage != BossStage.Spawn)
 			{
-				return;
+				return false;
 			}
 
 			if (lastSpawnedEnemy != null)
 			{
-				return;
+				return false;
+			}
+			else
+			{
+				return true;
 			}
 		}
 

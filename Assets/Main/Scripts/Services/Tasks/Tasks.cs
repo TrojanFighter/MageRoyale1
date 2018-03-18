@@ -309,7 +309,7 @@ namespace MageRoyale.Services.Task
         {
                 var bullet = BulletPool.nextThing; 
                 bullet.transform.position = fireSourceObject.transform.position;
-                bullet.transform.rotation = fireSourceObject.transform.rotation;
+                bullet.transform.rotation =Quaternion.Euler(0,UnityEngine.Random.Range(0,360),0);  //fireSourceObject.transform.rotation;
                 //yield return new WaitForSeconds(fireRate);
         }
     }
