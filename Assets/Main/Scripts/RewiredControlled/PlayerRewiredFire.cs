@@ -15,19 +15,33 @@ namespace MageRoyale.RewiredBase
 		public float FireRate = .1f;
 		public float FireShakeForce = .8f;
 		public float FireShakeDuration = .02f;
+		public float lastLongBurstStartTime,  LongBurstGapTime=1f;
+
+		public int LongBurstLength = 6;
+		
 
 
 		protected override void GetInput()
 		{
-			if (_functionAllowed&& player.GetButtonDown("Launch"))
+			if (!_functionAllowed)
 			{
-				StartCoroutine(Fire());
+				return;
+			}
+
+			if (Time.timeSinceLevelLoad - lastLongBurstStartTime > LongBurstGapTime)
+			{
+				if (player.GetButtonDown("Launch"))
+				{
+					StartCoroutine(Fire());
+					lastLongBurstStartTime = Time.timeSinceLevelLoad;
+				}
 			}
 		}
 		
 		IEnumerator Fire()
 		{
-			while (_functionAllowed&&player.GetButton("Launch"))
+			int LongBurstCount = LongBurstLength;
+			while (_functionAllowed&&player.GetButton("Launch")&&LongBurstCount>=0)
 			{
 				var bullet = BulletPool.nextThing; 
 				bullet.transform.position = WeaponTip.position;
@@ -39,6 +53,7 @@ namespace MageRoyale.RewiredBase
 
 				ProCamera2DShake.Instance.ApplyShakesTimed(new Vector2[]{ vForce }, new Vector3[]{Vector3.zero}, new float[]{ FireShakeDuration });
 
+				LongBurstCount--;
 				yield return new WaitForSeconds(FireRate);
 			}
 		}

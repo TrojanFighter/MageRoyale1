@@ -20,6 +20,7 @@ namespace MageRoyale.RewiredBase
         float _currentSpeedV;
         Vector3 _amountToMove;
         int _totalJumps;
+        
 
         protected CharacterController _characterController;
         //private Rigidbody _rigidBody;
@@ -158,6 +159,12 @@ namespace MageRoyale.RewiredBase
                 n += a * Time.deltaTime * dir;
                 return (dir == Mathf.Sign(target - n)) ? n : target;
             }
+        }
+
+        public bool PushedBack(Vector3 distance)
+        {
+            _characterController.Move(distance);
+            return true;
         }
     }
 }

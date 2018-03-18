@@ -121,7 +121,7 @@ Transform:
   m_GameObject: {fileID: 1593277044070242}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 5, y: 0.5, z: 5}
+  m_LocalScale: {x: 7, y: 0.5, z: 7}
   m_Children: []
   m_Father: {fileID: 4971866229589886}
   m_RootOrder: 2
@@ -147,7 +147,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1058981010557396}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.969, z: 0.659}
+  m_LocalPosition: {x: 0, y: 0.4, z: 0.659}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4971866229589886}
@@ -334,7 +334,7 @@ MonoBehaviour:
   _functionAllowed: 1
   rewiredSons: []
   ExplosionForce: 1000
-  ExplosionRadius: 5
+  ExplosionRadius: 7
   FireRate: 0.1
   FireShakeForce: 0.8
   FireShakeDuration: 0.02
@@ -367,7 +367,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1524531193529830}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ea1f9d9404738c449bbf64405daec5ce, type: 3}
   m_Name: 
@@ -377,9 +377,12 @@ MonoBehaviour:
   rewiredSons: []
   BulletPool: {fileID: 0}
   WeaponTip: {fileID: 4660699273798962}
-  FireRate: 0.1
+  FireRate: 0.05
   FireShakeForce: 0.8
   FireShakeDuration: 0.02
+  lastLongBurstStartTime: 0
+  LongBurstGapTime: 1
+  LongBurstLength: 6
 --- !u!136 &136321962759838084
 CapsuleCollider:
   m_ObjectHideFlags: 1

@@ -215,6 +215,7 @@
     <Compile Include="Assets\Main\Scripts\GPPSampleCode\Ball.cs" />
     <Compile Include="Assets\Main\Scripts\GPPSampleCode\EnemyBehavior.cs" />
     <Compile Include="Assets\Main\Scripts\GPPSampleCode\PlayerBehavior.cs" />
+    <Compile Include="Assets\Main\Scripts\Projectile\ForceBullet.cs" />
     <Compile Include="Assets\Main\Scripts\RewiredControlled\PlayerRewiredBump.cs" />
     <Compile Include="Assets\Main\Scripts\RewiredControlled\PlayerRewiredControl.cs" />
     <Compile Include="Assets\Main\Scripts\RewiredControlled\PlayerRewiredFire.cs" />
