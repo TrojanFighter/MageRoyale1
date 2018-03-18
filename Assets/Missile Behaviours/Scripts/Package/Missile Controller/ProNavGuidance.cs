@@ -103,7 +103,7 @@ namespace MissileBehaviours.Controller
             else
                 desiredRotation = (Time.deltaTime * los) + (losDelta * navigationalConstant); // Plain proportional navigation.
 
-            controller.Rotate(Quaternion.LookRotation(desiredRotation, transform.up)); // Use the RotateTask function of the controller, instead of the transforms, to consider the rotation rate of the missile.
+            controller.Rotate(Quaternion.LookRotation(desiredRotation, transform.up)); // Use the Rotate function of the controller, instead of the transforms, to consider the rotation rate of the missile.
         }
     }
 }
