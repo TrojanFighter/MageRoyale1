@@ -290,16 +290,19 @@ namespace MageRoyale.Services.Task
         {
             Pool poolObject = GameObject.FindObjectOfType((typeof(Pool))) as Pool;
             BulletPool = poolObject;
+            Fire();
             
             //SetStatus(TaskStatus.Success);
         }
         protected override void OnTick(float t)
         {
-            if (t - lastFireTick >= fireRate)
+            
+           //Not working not coming in dont know why
+           /* if (t - lastFireTick >= fireRate)
             {
                 Fire();
                 lastFireTick = t;
-            }
+            }*/
         }
 
         void Fire()
