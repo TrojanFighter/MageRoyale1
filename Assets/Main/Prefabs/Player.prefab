@@ -51,7 +51,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4971866229589886}
-  - component: {fileID: 114155836358009890}
   - component: {fileID: 136321962759838084}
   - component: {fileID: 114838683132845990}
   - component: {fileID: 114850473797423314}
@@ -121,7 +120,7 @@ Transform:
   m_GameObject: {fileID: 1593277044070242}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 7, y: 0.5, z: 7}
+  m_LocalScale: {x: 6, y: 0.5, z: 6}
   m_Children: []
   m_Father: {fileID: 4971866229589886}
   m_RootOrder: 2
@@ -307,18 +306,6 @@ MonoBehaviour:
   Health: 100
   _renderers:
   - {fileID: 23790766543039268}
---- !u!114 &114155836358009890
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1524531193529830}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a91f77722c3ad48e3b7f7c3dbe368d59, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Health: 100
 --- !u!114 &114586644244713802
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -334,7 +321,7 @@ MonoBehaviour:
   _functionAllowed: 1
   rewiredSons: []
   ExplosionForce: 1000
-  ExplosionRadius: 7
+  ExplosionRadius: 6
   FireRate: 0.1
   FireShakeForce: 0.8
   FireShakeDuration: 0.02
@@ -356,7 +343,7 @@ MonoBehaviour:
   rewiredSons:
   - {fileID: 114850473797423314}
   - {fileID: 114586644244713802}
-  bturnwithMouse: 1
+  bturnwithMouse: 0
   blockOnGround: 0
   _TurnRateEase: 0.15
   RunSpeed: 10

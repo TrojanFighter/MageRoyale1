@@ -2,7 +2,9 @@
 using UnityEngine;
 using System.Collections;
 using Com.LuisPedroFonseca.ProCamera2D;
+using MageRoyale.RewiredBase;
 using MageRoyale.Services;
+using GameOver = Com.LuisPedroFonseca.ProCamera2D.TopDownShooter.GameOver;
 
 namespace MageRoyale.Entity
 {
@@ -53,6 +55,7 @@ namespace MageRoyale.Entity
 
 		public override void SelfDestroy()
 		{
+			GameOver.Instance.ShowScreen(GetComponent<PlayerRewiredControl>().playerId.ToString());
 			base.SelfDestroy();
 		}
 	}

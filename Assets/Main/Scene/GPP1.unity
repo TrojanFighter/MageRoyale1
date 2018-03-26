@@ -2410,6 +2410,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1945e48821474dcbbc0e25d3609bc99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_GameOverText: {fileID: 1095039173}
   GameOverScreen: {fileID: 1033629325}
 --- !u!223 &1033629325
 Canvas:

@@ -6,7 +6,7 @@ namespace MageRoyale.RewiredBase
 {
     public class PlayerRewiredControl : RewiredBase
     {
-        private Vector3 moveVector;
+        private Vector3 moveVector,turnVector;
         private bool fire;
 
         public bool bturnwithMouse,blockOnGround=true;
@@ -71,6 +71,9 @@ namespace MageRoyale.RewiredBase
             {
                 moveVector.x = player.GetAxis("Horizontal Move"); // get input by name or action id
                 moveVector.y = player.GetAxis("Vertical Move");
+
+                turnVector.x = player.GetAxis("Horizontal Turn");
+                turnVector.y = player.GetAxis("Vertical Turn");
             }
 
             //Debug.Log(player.GetAxis("Horizontal Move")+" "+player.GetAxis("Vertical Move"));
@@ -126,6 +129,11 @@ namespace MageRoyale.RewiredBase
                     var angle = Mathf.Atan2(offset.y, offset.x) * Mathf.Rad2Deg;
                     transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, 90-angle, 0), _TurnRateEase);
                 }
+            }
+            else
+            {
+                var angle = Mathf.Atan2(turnVector.y, turnVector.x) * Mathf.Rad2Deg;
+                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, 90-angle, 0), _TurnRateEase);
             }
         }
 /*

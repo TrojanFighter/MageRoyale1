@@ -1,20 +1,25 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 namespace Com.LuisPedroFonseca.ProCamera2D.TopDownShooter
 {
-    public class GameOver : MonoBehaviour
+    public class GameOver : MonoBehaviourEX<GameOver>
     {
+        public Text m_GameOverText;
+
         public Canvas GameOverScreen;
 
-        void Awake()
+        public override void Awake()
         {
             GameOverScreen.gameObject.SetActive(false);
+            base.Awake();
         }
 
-        public void ShowScreen()
+        public void ShowScreen(string winnerID="")
         {
             GameOverScreen.gameObject.SetActive(true);
+            m_GameOverText.text = "Player "+winnerID+" wins.";
             Time.timeScale = 0;
         }
 
