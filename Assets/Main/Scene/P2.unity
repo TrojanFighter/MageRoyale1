@@ -3981,6 +3981,11 @@ Prefab:
       propertyPath: FireRate
       value: 0.1
       objectReference: {fileID: 0}
+    - target: {fileID: 114850473797423314, guid: 42bc832dcbc91b04089b9db98720e706,
+        type: 2}
+      propertyPath: BulletPool
+      value: 
+      objectReference: {fileID: 189328027}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 42bc832dcbc91b04089b9db98720e706, type: 2}
   m_IsPrefabParent: 0
