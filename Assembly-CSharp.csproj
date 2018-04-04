@@ -201,6 +201,7 @@
     <Compile Include="Assets\Imported\Rewired\Internal\Scripts\InputManager.cs" />
     <Compile Include="Assets\Imported\Rewired\Internal\Scripts\Misc\ExternalTools.cs" />
     <Compile Include="Assets\Imported\Rewired\Internal\Scripts\Platforms\Ouya\OuyaInputSource.cs" />
+    <Compile Include="Assets\MageRoyaleRewiredConsts.cs" />
     <Compile Include="Assets\Main\Scripts\Base\MonoBehaviourEX.cs" />
     <Compile Include="Assets\Main\Scripts\Base\Singleton.cs" />
     <Compile Include="Assets\Main\Scripts\Define\GameEvent.cs" />
